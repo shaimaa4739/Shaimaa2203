@@ -8,6 +8,9 @@ import { MovieDetailsComponent } from './modules/pages/movie-details/movie-detai
 import { BranchesComponent } from './modules/pages/branches/branches.component';
 import { NavbarComponent } from './modules/components/navbar/navbar.component';
 import { CardComponent } from './modules/components/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { CardComponent } from './modules/components/card/card.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

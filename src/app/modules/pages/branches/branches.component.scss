@@ -1,0 +1,40 @@
+@import './../../../styles/variables';
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin: $spacing-xl auto;
+  
+  input {
+    width: 100%;
+    padding: $spacing-md 50px;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    border-radius: $input-border-radius;
+    border: none;
+    background-color: $input-bg;
+    outline: none;
+    color: $text-color;
+    
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    left: $spacing-lg;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(1rem, 4vw, 1.125rem);
+  }
+}
+
+.results {
+  max-height: 80vh;
+  margin-top: $spacing-md;
+  &__item{
+    margin: $spacing-lg 0;
+  }
+}
+

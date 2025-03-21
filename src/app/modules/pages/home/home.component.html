@@ -1,1 +1,52 @@
-<p>home works!</p>
+<div class="page-container">
+    <app-navbar></app-navbar>
+
+    <section class="page-padding">
+        <p class="text-xl margin-bottom">Coming Soon</p>
+        <div class="featured-card">
+            <img  class="featured-card__image" [src]="data?.ComingSoonBanner" alt="movie-img">
+            <span  class="featured-card__title text-lg">{{data?.ComingSoonTitle}}</span>
+        </div>
+    </section>
+
+    <section class="category-tabs-container page-padding">
+        <div class="category-tabs">
+            <ng-container *ngFor="let category of data?.Categories">
+                <div
+                    class="category-tabs__tab"
+                    [class.active]="category.CategoryID == activeCategoryId"
+                    (click)="setActiveCategory(category.CategoryID)"
+                >
+                    {{ category.CategoryName }}
+                </div>
+            </ng-container>
+        </div>
+    </section>
+
+    <section 
+        class="last-section"
+        [ngClass]="{ 'page-padding center-flex-column-items': activeCategoryMovies.length == 0 }"
+        >
+        <ng-container *ngIf="activeCategoryMovies.length>0">
+            <p class="text-xl margin-bottom">Now Showing</p>
+            <div class="slider-scroll">
+                <div class="movies-container">
+                    <div class="movies-slider">
+                        <div class="center-flex-column-items" *ngFor="let movie of activeCategoryMovies">
+                            <div class="movie-card" >
+                                <img [src]="movie.FilmImage" alt="{{ movie.FilmName }}">
+                            </div>
+                            <p class="text-normal font-medium">{{ movie.FilmName }}</p>
+                            <div class="tags center-flex-row-items">
+                                <span class="tags__tag" *ngFor="let tag of movie.Tags" >{{tag}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="activeCategoryMovies.length==0">
+            <app-no-data-found [message]="'No movies found.'"></app-no-data-found>
+        </ng-container>
+    </section>
+</div>

@@ -1,1 +1,25 @@
-<p>card works!</p>
+<div class="custome-card">
+  <img [src]="item?.CinemaImage" alt="{{ item?.CinemaName }}" class="custome-card__image" />
+
+  <div class="custome-card__info">
+    <div class="header">
+      <div class="text-md font-semi-bold">{{ item?.CinemaName }}</div>
+      <div class="rating">
+          <img src="../../../../assets/icons/star.svg" alt="search-icon">
+          <span>{{ item?.CinemaRating }}</span>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="details__detail">
+          <img src="../../../../assets/icons/Ticket_Voucher.svg" alt="Ticket-icon">
+          <span>PHP {{ item?.TicketsAvailable }}</span>
+      </div>
+      <div class="details__detail">
+          <img class="icon-w-18" src="../../../../assets/icons/Recliner.svg" alt="Recliner-icon">
+          <span>{{ item?.CinemaHalls }} Cinemas</span>
+      </div>
+    </div>
+  </div>
+</div>
+  

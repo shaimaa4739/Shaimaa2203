@@ -1,1 +1,25 @@
-<p>branches works!</p>
+<div class="page-container p-xl-5 p-lg-5 p-md-5 p-sm-2 p-xs-1">
+    <div class="d-flex">
+        <app-back-btn></app-back-btn>
+        <span class="text-lg font-medium">Select Branch</span>
+    </div>
+
+    <div class="search-container">
+        <img class="search-icon" src="../../../../assets/icons/Search_Magnifying_Glass.svg" alt="Search-icon">
+        <input type="text" placeholder="Search Malls or Branch" [(ngModel)]="searchTerm" />
+    </div>
+
+    <div class="results center-flex-column-items">
+        <ng-container *ngIf="(cinemaList | searchFilter:searchTerm)?.length; else noData">
+            <ng-container *ngFor="let cinema of cinemaList | searchFilter:searchTerm">
+                <div class="results__item">
+                    <app-card [item]="cinema"></app-card>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #noData>
+            <app-no-data-found [message]="'No cinemas found near you.'"></app-no-data-found>
+        </ng-template>
+    </div>
+
+</div>

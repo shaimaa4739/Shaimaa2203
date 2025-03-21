@@ -1,0 +1,55 @@
+@import './../../../styles/variables';
+
+.custome-card {
+  display: flex;
+  background-color: $background-muted;
+  border-radius: $card-border-radius;
+  overflow: hidden;
+  align-items: stretch;
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+
+  &__image {
+    width: 130px;
+    height: auto; 
+    object-fit: cover; 
+    align-self: stretch; 
+  } 
+  
+  &__info {
+    flex: 1;
+    padding: $spacing-md;
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .rating {
+        display: flex;
+        align-items: center;
+        font-size: clamp(0.625rem, 2vw, 0.6875rem); 
+        gap: 5px;
+      }
+    }
+    
+    .details {
+      display: flex;
+      flex-direction: column;
+      margin: $spacing-md 0;
+      .icon-w-18{
+        width: 18px;
+      }
+      &__detail {
+        display: flex;
+        align-items: center;
+        font-size: clamp(0.625rem, 2vw, 0.6875rem); 
+        gap: 5px;
+        
+      }
+    }
+  }
+}
+  

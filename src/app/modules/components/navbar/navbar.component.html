@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<nav class="custom-navbar">
+    <ul class="navbar-list">
+        <li class="navbar-item"  (click)="setActive('movies')">
+            <a class="navbar-item__link" [class.active]="activeTab === 'movies'" routerLink="/home">
+                All Movies
+            </a>
+        </li>
+        <li class="navbar-item"  (click)="setActive('kids')">
+            <a class="navbar-item__link" [class.active]="activeTab === 'kids'" routerLink="/home">
+                For Kids
+            </a>
+        </li>
+        <li class="navbar-item"  (click)="setActive('branches')">
+            <a class="navbar-item__link" [class.active]="activeTab === 'branches'" routerLink="/branches">
+                Select Branch
+            </a>
+        </li>
+    </ul>
+</nav>

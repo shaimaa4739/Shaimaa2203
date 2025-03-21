@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  activeTab: string = 'movies';
+
+  setActive(tab: string) {
+    this.activeTab = tab;
+  }
+  
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-back-btn',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./back-btn.component.scss']
 })
 export class BackBtnComponent {
+
+  constructor(private location: Location){}
+  
+  goBack() {
+    this.location.back();
+  }
 
 }
