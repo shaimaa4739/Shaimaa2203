@@ -7,7 +7,7 @@
             <img src="../../../../assets/imgs/Play.svg" alt="play-icon">
         </button>
 
-        <button class="ticket-btn" [ngClass]="{'active':movie?.HasTicketsAvail,'dimmed':!movie?.HasTicketsAvail}">
+        <button class="ticket-btn" [routerLink]="movie?.HasTicketsAvail ? '/branches' : null" [disabled]="!movie?.HasTicketsAvail" [ngClass]="{'active':movie?.HasTicketsAvail,'dimmed':!movie?.HasTicketsAvail}">
             <img src="../../../../assets/icons/Ticket_Voucher.svg" alt="Ticket-icon">
             Get Tickets
         </button>
