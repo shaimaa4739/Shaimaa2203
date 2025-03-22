@@ -23,27 +23,33 @@
         </div>
     </section>
 
-    <section 
-        class="last-section page-padding"
-        [ngClass]="{ 'center-flex-column-items': activeCategoryMovies.length == 0 }"
-        >
+    <section [ngClass]="{ 'last-section page-padding center-flex-column-items': activeCategoryMovies.length == 0 }">
         <ng-container *ngIf="activeCategoryMovies.length>0">
-            <p class="text-xl margin-bottom">Now Showing</p>
-            <div class="slider-scroll">
-                <div class="movies-container">
-                    <div class="movies-slider">
-                        <div class="center-flex-column-items" *ngFor="let movie of activeCategoryMovies">
-                            <div class="movie-card" (click)="selectMovie(movie)">
-                                <img [src]="movie.FilmImage" alt="{{ movie.FilmName }}">
-                            </div>
-                            <p class="text-normal font-medium">{{ movie.FilmName }}</p>
-                            <div class="tags center-flex-row-items">
-                                <span class="tags__tag" *ngFor="let tag of movie.Tags" >{{tag}}</span>
-                            </div>
+            <p class="text-xl margin-bottom page-padding text-lg-position">Now Showing</p>
+            <swiper-container  
+                #swiperEl 
+                class="mySwiper" 
+                effect="coverflow" 
+                grab-cursor="true" 
+                centered-slides="true"
+                slides-per-view="10"
+                space-between="1"
+                coverflow-effect-rotate="50"
+                coverflow-effect-depth="100"
+                coverflow-effect-slide-shadows="false"
+            >
+                <swiper-slide *ngFor="let movie of activeCategoryMovies">
+                    <div class="movie-card" (click)="selectMovie(movie)">
+                        <img [src]="movie.FilmImage" [alt]="movie.FilmName">
+                    </div>
+                    <div class="movie-details">
+                        <p class="text-normal font-medium">{{ movie.FilmName }}</p>
+                        <div class="tags center-flex-row-items">
+                        <span class="tags__tag" *ngFor="let tag of movie.Tags">{{ tag }}</span>
                         </div>
                     </div>
-                </div>
-            </div>
+                </swiper-slide>
+            </swiper-container>
         </ng-container>
         <ng-container *ngIf="activeCategoryMovies.length==0">
             <app-no-data-found [message]="'No movies found.'"></app-no-data-found>

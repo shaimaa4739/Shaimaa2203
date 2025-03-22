@@ -56,52 +56,58 @@
     }
 }
 
+.tags {
+    @media (min-width: 600px) {
+        flex-wrap: nowrap;
+    }
+}
 
-.slider-scroll {
+.mySwiper {
     width: 100%;
-    overflow: hidden;
+    height: 370px;
+    overflow-x: hidden;
+    overflow-y: visible;
 
+    img {
+        width: auto;
+        height: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
 
-    .movies-container {
-        overflow-x: auto;
-        padding: $spacing-lg 0;
+swiper-slide {
+    transform: scale(0.75) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: visible;
 
-        .movies-slider {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.3s ease-in-out;
-    
-            .movie-card {
-                min-width: 180px;
-                max-width: 300px;
-                border-radius: $card-border-radius;
-                overflow: hidden;
-                position: relative;
-                cursor: pointer;
-        
-                img {
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                }
-        
-                .movie-title {
-                    position: absolute;
-                    bottom: 10px;
-                    left: 10px;
-                    font-size: clamp(1rem, 4vw, 1.125rem);
-                    font-weight: $font-weight-medium;
-                    padding: $spacing-xs;
-                    border-radius: $btn-border-radius-xs;
-                }
-            }
+    &.swiper-slide-active {
+        transform: scale(1) !important;
+        .movie-details {
+            opacity: 1;
         }
     }
 }
 
+.movie-details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    max-height: 100px;
+    overflow: visible;
+}
+
+
 @media only screen and (min-width: 1024px) {
     .section-lg-position{
         margin: 0 auto;
+    }
+    .text-lg-position,.section-lg-position{
         text-align: center;
     }
     .category-tabs{
