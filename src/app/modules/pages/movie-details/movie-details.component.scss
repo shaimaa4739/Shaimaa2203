@@ -1,0 +1,108 @@
+@import './../../../styles/variables';
+
+.main-card{
+  
+
+  &__image {
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: $img-border-radius-sm;
+  }
+  @media only screen and (max-width: 1024px) {
+    &__image {
+      border-radius: 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #1E1F27 17.56%, rgba(0, 0, 0, 0) 52.94%),
+                linear-gradient(180deg, rgba(30, 31, 39, 0.6) 0%, rgba(0, 0, 0, 0) 39.97%);
+  }
+}
+  
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+  
+.ticket-btn {
+  z-index: 2;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $text-color;
+  border: none;
+  border-radius: $btn-border-radius-sm;
+  padding: $spacing-md $spacing-md;
+  font-size: clamp(0.9375rem, 3.5vw, 1rem);
+  cursor: pointer;
+}
+
+.active{
+  background-color: $primary-color;
+}
+
+.dimmed{
+  background-color: $btn-grey-bg;
+}
+
+.btn-top-left-position{
+  z-index: 2;
+  position: absolute;
+  top: 58px;
+  left: 30px;
+}
+
+.w-85{
+  width: 85%;
+}
+
+.position{
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+}
+
+.content-padding{
+  padding: 0 $spacing-lg;
+}
+  
+.margin-y-lg {
+  margin: $spacing-lg 0;
+}
+
+.margin-bottom-md {
+  margin-bottom:  $spacing-md;
+}
+  
+.collapsed {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@media only screen and (min-width: 1024px) {
+  .page-lg-size{
+    width: 100%;
+    max-width: 440px;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: $spacing-xl auto;
+  }
+  
+}

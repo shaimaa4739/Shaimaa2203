@@ -1,1 +1,43 @@
-<p>movie-details works!</p>
+<div class="position-relative  page-lg-size">
+    <app-back-btn class="btn-top-left-position"></app-back-btn>
+    <div class="position-relative main-card">
+        <img [src]="movie?.FilmImage" alt="{{movie?.FilmName}}" class="main-card__image">
+
+        <button class="play-btn text-lg">
+            <img src="../../../../assets/imgs/Play.svg" alt="play-icon">
+        </button>
+
+        <button class="ticket-btn" [ngClass]="{'active':movie?.HasTicketsAvail,'dimmed':!movie?.HasTicketsAvail}">
+            <img src="../../../../assets/icons/Ticket_Voucher.svg" alt="Ticket-icon">
+            Get Tickets
+        </button>
+
+        <div class="row position w-100 content-padding">
+            <div class="col-9">
+                <div class="tags d-flex align-items-center justify-content-start ">
+                    <span class="tags__tag" *ngFor="let tag of movie?.Tags" >{{tag}}</span>
+                </div>
+
+            </div>
+            <div class="col-3 px-0">
+                <img src="../../../../assets/icons/Clock.svg" alt="Ticket-icon">
+                <span class="text-xs mx-1">{{ movie?.FilmDuration }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-padding center-flex-column-items">
+        <div class="text-start margin-y-lg mx-auto">
+            <p class="text-md-lg font-medium margin-bottom-md">{{ movie?.FilmName }}</p>
+            <div *ngIf="movie?.FilmDescription" class="d-flex align-items-end text-xs w-85 ">
+                <p class="mb-0" [class.collapsed]="isTextCollapsed">
+                    {{movie?.FilmDescription}}
+                </p> 
+                <span class="highlight-clickable-text" (click)="toggleCollapse()">{{isTextCollapsed? 'More': 'Less'}}</span>
+            </div>
+        </div>
+        <div *ngIf="!movie?.FilmDescription" class="center-flex-column-items">
+            <app-no-data-found [message]="'No Description.'"></app-no-data-found>
+        </div>
+    </div>
+</div>

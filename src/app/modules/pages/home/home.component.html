@@ -1,7 +1,7 @@
 <div class="page-container">
     <app-navbar></app-navbar>
 
-    <section class="page-padding">
+    <section class="page-padding section-lg-position">
         <p class="text-xl margin-bottom">Coming Soon</p>
         <div class="featured-card">
             <img  class="featured-card__image" [src]="data?.ComingSoonBanner" alt="movie-img">
@@ -24,8 +24,8 @@
     </section>
 
     <section 
-        class="last-section"
-        [ngClass]="{ 'page-padding center-flex-column-items': activeCategoryMovies.length == 0 }"
+        class="last-section page-padding"
+        [ngClass]="{ 'center-flex-column-items': activeCategoryMovies.length == 0 }"
         >
         <ng-container *ngIf="activeCategoryMovies.length>0">
             <p class="text-xl margin-bottom">Now Showing</p>
@@ -33,7 +33,7 @@
                 <div class="movies-container">
                     <div class="movies-slider">
                         <div class="center-flex-column-items" *ngFor="let movie of activeCategoryMovies">
-                            <div class="movie-card" >
+                            <div class="movie-card" (click)="selectMovie(movie)">
                                 <img [src]="movie.FilmImage" alt="{{ movie.FilmName }}">
                             </div>
                             <p class="text-normal font-medium">{{ movie.FilmName }}</p>

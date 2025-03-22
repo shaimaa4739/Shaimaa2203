@@ -12,6 +12,9 @@ export class ApiService {
   private branchesSubject = new BehaviorSubject<any>(null); 
   branches$ = this.branchesSubject.asObservable(); 
 
+  private movieSubject = new BehaviorSubject<any>(null); 
+  movie$ = this.branchesSubject.asObservable(); 
+
   constructor(private _http:HttpClient) { }
 
   getData() : Observable<any>{
@@ -24,5 +27,13 @@ export class ApiService {
 
   getbranches(): any {
     return this.branchesSubject.value;
+  }
+
+  setmovie(value: any): void {
+    this.movieSubject.next(value);
+  }
+
+  getmovie(): any {
+    return this.movieSubject.value;
   }
 }

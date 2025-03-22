@@ -1,10 +1,14 @@
 @import './../../../styles/variables';
 
+.mt-50{
+  margin-top: 50px;
+}
+
 .search-container {
   position: relative;
   width: 100%;
   max-width: 330px;
-  margin: $spacing-xl auto;
+  margin: $spacing-lg auto;
   
   input {
     width: 100%;
@@ -31,10 +35,11 @@
 }
 
 .results {
-  max-height: 80vh;
-  margin-top: $spacing-md;
+  width: 100%;
+  max-width: 500px;
   &__item{
     margin: $spacing-lg 0;
+    width: 100%;
   }
 }
 

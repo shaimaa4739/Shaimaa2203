@@ -15,7 +15,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'details/:id', 
+    path: 'details', 
+    component: MovieDetailsComponent
+  },
+  {
+    path: 'details/:categoryId/:movieId', 
     component: MovieDetailsComponent
   },
   {

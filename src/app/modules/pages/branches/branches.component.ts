@@ -15,7 +15,6 @@ export class BranchesComponent implements OnInit {
   constructor (private _ApiService: ApiService){}
 
   ngOnInit(){
-
     // Note: BehaviorSubject so data disappear when refresh
     this.getBranches();
   }

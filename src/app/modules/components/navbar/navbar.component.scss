@@ -27,19 +27,6 @@
 
             &.active {
                 color: $primary-color;
-
-                // TODO:: UX Design
-                // Add underline effect to active tab
-                &::after {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 3px;
-                    background-color: $primary-color;
-                    border-radius: 2px;
-                }
             }
         }
     }
